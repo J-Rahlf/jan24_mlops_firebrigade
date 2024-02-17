@@ -82,16 +82,3 @@ async def evaluate(data: DataIn):
         "f2_score": f2_score
     }
 
-# Endpoint to retrieve data from DataFrame
-@app.get("/get_data/")
-async def get_data():
-    """
-    Endpoint to retrieve data from a DataFrame.
-    
-    Returns the first 10 rows of the DataFrame.
-    """
-    # Fetch data from DataFrame
-    data = df.head(10).to_dict(orient='records')
-    
-    # Return data
-    return {"data": data}
