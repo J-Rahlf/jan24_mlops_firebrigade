@@ -14,7 +14,7 @@ class AddressInput(BaseModel):
     address: str
 # here we need an updatable file!!!
 # Read the CSV file containing fire station data
-sb = pd.read_csv("src/data/sb.csv")
+sb= pd.read_csv()"data/processed/sb.csv")
 
 # Route to find nearest fire stations based on address
 @app.post("/find_nearest_firestations")
