@@ -14,7 +14,7 @@ class AddressInput(BaseModel):
     address: str
 # here we need an updatable file!!!
 # Read the CSV file containing fire station data
-sb= pd.read_csv()"data/processed/sb.csv")
+sb= pd.read_csv("/Users/Kivik11_1/Documents/GitHub/jan24_mlops_firebrigade/data/processed/sb.csv")
 
 # Route to find nearest fire stations based on address
 @app.post("/find_nearest_firestations")
@@ -44,9 +44,12 @@ async def find_nearest_firestations(address_input: AddressInput):
         raise HTTPException(status_code=500, detail=f"Error retrieving coordinates: {e}")
 
 # Route to get current time in London
-@app.get("/current_time_london")
+@app.get("/current_hour_london")
 async def get_current_time_london():
     london_timezone = pytz.timezone('Europe/London')
     current_time = datetime.datetime.now(london_timezone)
     formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
-    return {"current_time": formatted_time}
+    current_hour = current_time.hour + 1
+    return{(f"Hour of Call: {current_hour}")}
+    
+ 
