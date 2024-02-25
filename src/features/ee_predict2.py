@@ -59,7 +59,8 @@ async def predict(data: DataIn):
      
         input_data = pd.DataFrame([data.__dict__])
         prediction = xclf.predict(input_data)
-        predicted_class = prediction[0]
+        predicted_class = float(prediction[0])
+        #predicted_class = prediction[0]
         print("Predicted class:", predicted_class)
 
         # Rückgabe der vorhergesagten Klasse
