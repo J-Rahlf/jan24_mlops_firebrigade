@@ -26,16 +26,7 @@ df = pd.read_csv('/Users/Kivik11_1/Documents/GitHub/jan24_mlops_firebrigade/data
 
 #
 #
-#
-# Erstellen einer Instanz von DataIn
-#data = DataIn(
-#    HourOfCall=10,
- #   distance=20.3,
-   #distance_stat=15.7,
-  #  pop_per_stat=500.0,
-  #  bor_sqkm=30.2
-#)
-#
+
 #
 #
 
@@ -51,9 +42,9 @@ async def root():
 @app.post("/predict/")
 async def predict(data: DataIn):
     """
-    Endpoint zur Durchführung von Vorhersagen.
+    Endpoint prediction.
 
-    Akzeptiert Eingabedaten im JSON-Format und gibt die vorhergesagte Klasse zurück.
+    Accepts input data in JSON format and returns the predicted class.
     """
     try:
      
@@ -63,10 +54,10 @@ async def predict(data: DataIn):
         #predicted_class = prediction[0]
         print("Predicted class:", predicted_class)
 
-        # Rückgabe der vorhergesagten Klasse
+        # Return of the predicted class
         return {"predicted_class": predicted_class}
     except Exception as e:
-        # Fehlerbehandlung
+        # error handling
         raise HTTPException(status_code=500, detail=f"An error occurred during prediction: {e}")
 
 # Endpoint for evaluation

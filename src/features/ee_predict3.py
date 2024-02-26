@@ -5,6 +5,7 @@ from geopy.distance import geodesic
 import datetime
 import pytz
 import pandas as pd
+import joblib
 
 # Initialize FastAPI instance
 app = FastAPI()
@@ -12,12 +13,15 @@ app = FastAPI()
 # Define a Pydantic model for request body
 class AddressInput(BaseModel):
     address: str
-# here we need an updatable file!!!
+
 # Read the CSV file containing fire station data
-sb= pd.read_csv("/Users/Kivik11_1/Documents/GitHub/jan24_mlops_firebrigade/data/processed/sb.csv")
+sb = pd.read_csv("/Users/Kivik11_1/Documents/GitHub/jan24_mlops_firebrigade/data/processed/sb.csv")
+
+# Load your trained model
+xclf = joblib.load('/Users/Kivik11_1/Documents/GitHub/jan24_mlops_firebrigade/models/XGBoost3kurz.pkl')
 
 # Route to find nearest fire stations based on address
-@app.post("/find_nearest_firestations")
+@app.post("/predict")
 async def find_nearest_firestations(address_input: AddressInput):
     address = address_input.address
     if "London" not in address:
@@ -36,20 +40,33 @@ async def find_nearest_firestations(address_input: AddressInput):
             # Calculate distances between address and fire stations
             sb['distance'] = sb.apply(lambda row: round(geodesic(address_coords, (row['lat'], row['long'])).meters, 3), axis=1)
             # Find 3 nearest fire stations
-            nearest_fire_stations = sb.nsmallest(3, 'distance')
-            return nearest_fire_stations.to_dict(orient="records")
+            nearest_fire_stations = sb.nsmallest(1, 'distance')
+            
+            # Get current time in London
+            london_timezone = pytz.timezone('Europe/London')
+            current_time = datetime.datetime.now(london_timezone)
+            current_hour = current_time.hour + 1
+            
+            # Make prediction using XGBoost model
+            prediction_data = {
+                "HourOfCall": current_hour,
+                "distance": nearest_fire_stations['distance'].iloc[0], 
+                "distance_stat": nearest_fire_stations['distance_stat'].iloc[0],
+                "pop_per_stat": nearest_fire_stations['pop_per_stat'].iloc[0],
+                "bor_sqkm": nearest_fire_stations['bor_sqkm'].iloc[0]
+            }
+            prediction_result = xclf.predict(pd.DataFrame([prediction_data]))[0]
+            
+            return {
+                "nearest_fire_station": nearest_fire_stations.to_dict(orient="records"),
+                "predicted_class": float(prediction_result)
+            }
         else:
             raise HTTPException(status_code=404, detail="Address not found in London.")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error retrieving coordinates: {e}")
 
-@app.get("/current_hour_london")
-async def get_current_time_london():
-    london_timezone = pytz.timezone('Europe/London')
-    current_time = datetime.datetime.now(london_timezone)
-    formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
-    current_hour = current_time.hour + 1
-    return {(f"Hour of Call: {current_hour}")}
-
-    
- 
+# Route for root
+@app.get("/")
+async def root():
+    return {"message": "API is functional"}

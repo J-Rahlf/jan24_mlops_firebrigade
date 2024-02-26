@@ -32,6 +32,7 @@ data = DataIn(
 # Vorhersage treffen
 input_data = pd.DataFrame([data.__dict__])
 prediction = xclf.predict(input_data)
+#es muss als float ausgegebne werden...
 predicted_class = prediction[0]
 print("Predicted class:", predicted_class)
 
