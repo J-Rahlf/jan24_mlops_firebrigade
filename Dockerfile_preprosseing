@@ -1,0 +1,15 @@
+# Use a base image with Python
+FROM python:3.9
+
+# Install the required dependencies
+RUN pip install pyproj matplotlib numpy pandas geopy
+
+# Copy the Python script into the container
+COPY src/features/jr_preprossing.py /app/jr_preprossing.py
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Command to run the script
+CMD ["python", "jr_preprossing.py"]
+
