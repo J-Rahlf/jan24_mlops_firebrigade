@@ -16,6 +16,25 @@ services:
       - type: bind
         source: ./data/processed
         target: /app/data/processed
+    networks:
+      - firebrigade
+
+  pytest:
+    build:
+      context: .
+      dockerfile: Dockerfile_pytest
+    depends_on:
+      - preprossing
+    volumes:
+      - type: bind
+        source: ./tests
+        target: /app/tests
+    networks:
+      - firebrigade
+
+networks:
+  firebrigade:
+
 
 
 

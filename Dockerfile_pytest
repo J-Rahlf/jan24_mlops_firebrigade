@@ -1,0 +1,14 @@
+# Use the official Python 3.9 slim image as base image
+FROM python:3.9-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the test scripts into the container's working directory
+COPY tests/ /app/tests/
+
+# Install pytest and other dependencies
+RUN pip install pytest
+
+# Command to execute when the container starts
+CMD ["pytest", "tests/"]
