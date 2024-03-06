@@ -2,10 +2,10 @@
 FROM python:3.9-slim
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /jan24_mlops_firebrigade
 
 # Copy the test scripts into the container's working directory
-COPY tests/ /app/tests/
+COPY tests/ /jan24_mlops_firebrigade/tests/
 
 # Install pytest and other dependencies
 RUN pip install pytest

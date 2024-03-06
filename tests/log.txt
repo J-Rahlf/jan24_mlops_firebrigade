@@ -1,10 +1,15 @@
 
+
+====================================
+Start test on 'jr_preprossing.py': 
+2024-03-06 10:33:21.68
+====================================
 ====================================
 pytest: "jr_preprossing.py"
+Time of execution: None
+test_script_execution(): Success
 ====================================
-test_script_execution(): Failure
-Reason: The script execution failed
 ====================================
 pytest: "jr_preprossing.py"
+test_output_file_creation(): Success
 ====================================
-test_output_file_creation(): Failure

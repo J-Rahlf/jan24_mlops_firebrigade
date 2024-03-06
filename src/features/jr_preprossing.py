@@ -2,12 +2,23 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import os
 from pyproj import Proj, Transformer
 from geopy.distance import geodesic
+from datetime import datetime
 
+print('jr_preprosseing startet')
+# Read the CSV file
+# Get the directory path of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Navigate to the project directory (two parent directories up from the script directory)
+project_dir = os.path.dirname(os.path.dirname(script_dir))
+
+# Construct the file path relative to the current working directory
+file_path = os.path.join(project_dir, 'data/raw/df_i.csv')
 
 # Read the CSV file
-file_path = '/app/data/raw/df_i.csv'
 df_i = pd.read_csv(file_path)
 
 # List of desired columns
@@ -45,8 +56,8 @@ def utm_to_wgs84_wrapper(row):
 with pd.option_context('mode.chained_assignment', None):  # Suppress SettingWithCopyWarning
     df_i2[['lat_cal', 'long_cal', 'lat_cal_r', 'long_cal_r']] = df_i2.apply(utm_to_wgs84_wrapper, axis=1)
 
-# Read the CSV file stations_boroughs
-file_path = '/app/data/external/stations_boroughs_1.csv'
+# Construct the file path relative to the current working directory
+file_path = os.path.join(project_dir, 'data/external/stations_boroughs_1.csv')
 df_stations_boroughs = pd.read_csv(file_path)
 
 # Merge based on the 'FirstPumpArriving_DeployedFromStation' column
@@ -102,7 +113,22 @@ df_mi2['AttendanceTimeClasses3'] = pd.cut(df_mi2['AttendanceTime'] / 60, bins=[0
 # Save processed file in ../data/processed/
 
 # File path to save the processed CSV file
-output_file_path = './data/processed/df_mi5.csv'
+output_file_path = os.path.join(project_dir, 'data/processed/df_mi5_5.csv')
 
 # Save the DataFrame as a CSV file
 df_mi2.to_csv(output_file_path, index=False)
+
+#Timestamp as envirement variable
+current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
+current_datetime = current_datetime[:-4]  
+os.environ['current_datetime'] = current_datetime
+
+print(os.environ['current_datetime'])
+
+# # Function to get the current datetime
+# def get_current_datetime():
+#     return datetime.now()
+
+# current_datetime = get_current_datetime()
+current_datetime = os.environ['current_datetime']
+print("Current datetime from program:", current_datetime)

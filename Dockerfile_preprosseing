@@ -5,11 +5,13 @@ FROM python:3.9
 RUN pip install pyproj matplotlib numpy pandas geopy
 
 # Copy the Python script into the container
-COPY src/features/jr_preprossing.py /app/jr_preprossing.py
+COPY src/features/jr_preprossing.py /jan24_mlops_firebrigade/src/features/jr_preprossing.py
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /jan24_mlops_firebrigade
 
 # Command to run the script
-CMD ["python", "jr_preprossing.py"]
+CMD ["python", "src/features/jr_preprossing.py"]
+
+
 
