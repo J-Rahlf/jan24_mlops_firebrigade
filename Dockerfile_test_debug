@@ -1,0 +1,14 @@
+# Verwenden des Python-Basisimages
+FROM python:3.9-slim
+
+# Setzen des Arbeitsverzeichnisses im Container
+WORKDIR /jan24_mlops_firebrigade
+
+# Kopieren des Testskripts in das Arbeitsverzeichnis im Container
+COPY tests /jan24_mlops_firebrigade/tests
+
+# Installieren von erforderlichen Paketen
+RUN pip install pytest
+
+# Starten des Bash-Shells, wenn der Container gestartet wird
+CMD ["/bin/bash"]

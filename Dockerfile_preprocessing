@@ -1,0 +1,18 @@
+# Use a base image with Python
+FROM python:3.9
+
+# Install the required dependencies
+RUN pip install matplotlib numpy pandas pyproj geopy datetime
+
+# Set the working directory inside the container
+WORKDIR /jan24_mlops_firebrigade
+
+# Copy the Python script into the container
+COPY src/features/jr_preprocessing.py /jan24_mlops_firebrigade/src/features/jr_preprocessing.py
+
+
+# Command to run the script
+CMD ["python", "src/features/jr_preprocessing.py"]
+
+
+
