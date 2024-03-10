@@ -1,14 +1,14 @@
 # Use the official Python 3.9 slim image as base image
 FROM python:3.9-slim
 
+# Install pytest and other dependencies
+RUN pip install pytest datetime
+
 # Set the working directory inside the container
 WORKDIR /jan24_mlops_firebrigade
 
 # Copy the test scripts into the container's working directory
-COPY tests/ /jan24_mlops_firebrigade/tests/
-
-# Install pytest and other dependencies
-RUN pip install pytest
+COPY tests/test_jr_preprossing.py /jan24_mlops_firebrigade/tests/test_jr_preprossing.py
 
 # Command to execute when the container starts
-CMD ["pytest", "tests/"]
+CMD ["pytest", "tests/test_jr_preprossing.py"]

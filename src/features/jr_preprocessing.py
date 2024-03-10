@@ -7,16 +7,20 @@ from pyproj import Proj, Transformer
 from geopy.distance import geodesic
 from datetime import datetime
 
-print('jr_preprosseing startet')
+print('jr_preprocessing startet')
 # Read the CSV file
 # Get the directory path of the current script
 script_dir = os.path.dirname(os.path.abspath(__file__))
+print('X', script_dir)
 
 # Navigate to the project directory (two parent directories up from the script directory)
 project_dir = os.path.dirname(os.path.dirname(script_dir))
+print('X', project_dir)
 
 # Construct the file path relative to the current working directory
-file_path = os.path.join(project_dir, 'data/raw/df_i.csv')
+file_path = os.path.join(project_dir, "data", "raw", "df_i.csv")
+print('X', file_path)
+
 
 # Read the CSV file
 df_i = pd.read_csv(file_path)
@@ -121,14 +125,8 @@ df_mi2.to_csv(output_file_path, index=False)
 #Timestamp as envirement variable
 current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
 current_datetime = current_datetime[:-4]  
-os.environ['current_datetime'] = current_datetime
+os.environ['CURRENT_DATETIME'] = current_datetime
 
-print(os.environ['current_datetime'])
+print(os.environ['CURRENT_DATETIME'])
 
-# # Function to get the current datetime
-# def get_current_datetime():
-#     return datetime.now()
-
-# current_datetime = get_current_datetime()
-current_datetime = os.environ['current_datetime']
 print("Current datetime from program:", current_datetime)

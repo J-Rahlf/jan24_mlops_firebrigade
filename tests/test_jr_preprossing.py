@@ -12,7 +12,7 @@ project_dir = os.path.dirname(script_dir)
 print('X',project_dir)
 
 # Set the path to the module
-module_path = os.path.join(project_dir, "src", "features", "jr_preprossing.py")
+module_path = os.path.join(project_dir, "src", "features", "jr_preprocessing.py")
 print('X',module_path)
 
 # Set the path to the log.txt file in the tests directory
@@ -33,7 +33,7 @@ formatted_date_time = date_time.strftime("%Y-%m-%d %H:%M:%S.%f")[:-4]
 # Write the start time to the log file
 with open(log_file_path, "a") as log_file:
     log_file.write("\n====================================\n")
-    log_file.write(f"Start test on 'jr_preprossing.py': \n{formatted_date_time}\n")
+    log_file.write(f"Start test on 'jr_preprocessing.py': \n{formatted_date_time}\n")
     log_file.write("====================================\n")
     
 
@@ -42,7 +42,7 @@ with open(log_file_path, "a") as log_file:
 # Test whether the script executes successfully
 def test_script_execution():
     # Get the absolute path to the script
-    script_path = os.path.join(project_dir, "src/features/jr_preprossing.py")
+    script_path = os.path.join(project_dir, "src/features/jr_preprocessing.py")
     print('X', script_path)
     # Define the command to execute the script
     command = f"python {script_path}"
@@ -52,11 +52,11 @@ def test_script_execution():
         # Print the process output
         print("Process output:", process.stdout)
         # Get the current datetime from the program
-        current_datetime = os.environ.get('current_datetime')
+        current_datetime = os.environ.get('CURRENT_DATETIME')
         # Write the test result to log.txt in the tests directory
         with open(log_file_path, "a") as log_file:
             log_file.write("====================================\n")
-            log_file.write("pytest: \"jr_preprossing.py\"\n")
+            log_file.write("pytest: \"jr_preprocessing.py\"\n")
             log_file.write("Time of execution: {}\n".format(current_datetime))
             log_file.write("test_script_execution(): Success\n")
             log_file.write("====================================\n")
@@ -64,7 +64,7 @@ def test_script_execution():
         # Write the error information to log.txt
         with open(log_file_path, "a") as log_file:
             log_file.write("====================================\n")
-            log_file.write("pytest: \"jr_preprossing.py\"\n")
+            log_file.write("pytest: \"jr_preprocessing.py\"\n")
             log_file.write("test_script_execution(): Failure\n")
             log_file.write(f"Reason: The script execution failed\n{e}\n")
             log_file.write("====================================\n")
@@ -80,7 +80,7 @@ def test_output_file_creation():
     # Write the test result to log.txt in the tests directory
     with open(log_file_path, "a") as log_file:
         log_file.write("====================================\n")
-        log_file.write("pytest: \"jr_preprossing.py\"\n")
+        log_file.write("pytest: \"jr_preprocessing.py\"\n")
         log_file.write("test_output_file_creation(): ")
         log_file.write(result + "\n")
         log_file.write("====================================\n")
