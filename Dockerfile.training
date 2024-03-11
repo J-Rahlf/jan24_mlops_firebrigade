@@ -1,0 +1,8 @@
+FROM ubuntu:22.04
+COPY lh_requirements_01.txt /home/training/lh_requirements_01.txt
+RUN apt-get update && apt-get install python3-pip -y && pip install -r /home/training/lh_requirements_01.txt 
+ADD src/models/lh_ee_xgboostmodel1_c01.py /home/training/lh_ee_xgboostmodel1_c01.py
+WORKDIR /home/training/
+ENV LOG="1"
+VOLUME /home/training/tests /home/training/processed /home/training/models
+CMD python3 lh_ee_xgboostmodel1_c01.py

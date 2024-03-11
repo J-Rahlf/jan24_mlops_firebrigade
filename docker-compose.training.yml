@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  LFB_training_service:
+    image: lfb_training:latest
+    container_name: LFB_training
+    networks:
+      - firebrigade
+    volumes:
+      - ./models/:/home/training/models
+      - ./data/processed:/home/training/processed
+    environment:
+      - LOG=1
+
+networks:
+  firebrigade: 

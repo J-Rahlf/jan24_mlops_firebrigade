@@ -1,0 +1,13 @@
+FROM ubuntu:22.04
+COPY lh_requirements_01.txt /home/model_test/lh_requirements_01.txt
+RUN apt-get update && apt-get install python3-pip -y && pip install -r /home/model_test/lh_requirements_01.txt 
+ADD tests/lh_model_evaluation.py /home/model_test/lh_model_evaluation.py
+ADD tests/lh_model_evaluation_test.py /home/model_test/lh_model_evaluation_test.py
+ADD tests/lh_model_evaluation_test_exec.py /home/model_test/lh_model_evaluation_test_exec.py
+WORKDIR /home/model_test/
+ENV LOG="1"
+VOLUME /home/model_test/tests 
+VOLUME /home/model_test/models
+#CMD python3 -m pytest lh_model_evaluation_test.py
+#CMD python3 lh_model_evaluation_test.py
+CMD python3 lh_model_evaluation_test_exec.py

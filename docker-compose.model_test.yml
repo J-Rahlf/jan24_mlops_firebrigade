@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  LFB_training_service:
+    image: lfb_model_testing:latest
+    container_name: LFB_model_testing
+    networks:
+      - firebrigade
+    volumes:
+      - type: bind
+        source: ./tests
+        target: /home/model_test/tests
+
+      - type: bind
+        source: ./models/
+        target: /home/model_test/models
+
+    environment:
+      - LOG=1
+
+networks:
+  firebrigade: 
