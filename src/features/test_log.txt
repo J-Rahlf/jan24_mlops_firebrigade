@@ -1,0 +1,4 @@
+result:
+Statuscode: 200
+answer: {'nearest_fire_stations': [{'stat': 'Paddington', 'borough': 'Westminster', 'distance_stat': 4109.333901321731, 'pop_per_stat': 102544, 'bor_sqkm': 21.48, 'lat': 51.5202041, 'long': -0.183022, 'distance': 1827.345}], 'distance_to_incident': 1827.345, 'predicted_class': 1.0, 'arrival_time_message': '3 to 6 minutes'}
+test validated.

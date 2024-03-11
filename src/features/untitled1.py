@@ -1,39 +1,68 @@
-from fastapi import Depends, FastAPI, HTTPException, status
-from fastapi.responses import JSONResponse
-from fastapi.security import HTTPBasic, HTTPBasicCredentials
-from passlib.context import CryptContext
-
-app = FastAPI()
-security = HTTPBasic()
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-users = {
-    "harriet": {
-        "username": "harriet",
-        "name": "Harriet Kane",
-        "hashed_password": pwd_context.hash('munich2024'),
-    },
-    "phil": {
-        "username": "phil",
-        "name": "Phil Foden",
-        "hashed_password": pwd_context.hash('manchester2024'),
+import os
+import requests
+# definition of the API address
+api_address = 'localhost'
+# API port
+api_port = 8000
+# requête
+r = requests.post(
+    url='http://{localhost}:{8000}/login'.format(address=api_address, port=api_port),
+    params= {
+        'username': 'harriet',
+        'password': 'munich2024'
     }
-}
-
-def get_current_user(credentials: HTTPBasicCredentials = Depends(security)):
-    username = credentials.username
-    if not (users.get(username)) or not (pwd_context.verify(credentials.password, users[username]['hashed_password'])):
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Incorrect email or password",
-            headers={"WWW-Authenticate": "Basic"},
-        )
-    return credentials.username
-
-@app.get("/login")
-def current_user(username: str = Depends(get_current_user)):
-    return "Hello {}".format(username)
-
-@app.post("/logout")
-async def logout():
-    return {"message": "Logout successful"}
+)
+output = '''
+============================
+    Authentication test
+============================
+request done at "/login"
+| username="harriet"
+| password="munich2024"
+expected result = 200
+actual restult = {status_code}
+==>  {test_status}
+'''
+# query status
+status_code = r.status_code
+# display the results
+if status_code == 200:
+    test_status = 'SUCCESS'
+else:
+    test_status = 'FAILURE'
+print(output.format(status_code=status_code, test_status=test_status))
+# printing in a file
+if os.environ.get('LOG') == 1:
+    with open('api_test.log', 'a') as file:
+        file.write(output)
+        
+r = requests.post(
+    url='http://{localhost}:{8000}/login'.format(address=api_address, port=api_port),
+    params= {
+        'username': 'mickey',
+        'password': 'mouse2024'
+    }
+)
+output = '''
+============================
+    Authentication test
+============================
+request done at "/login"
+| username="mickey"
+| password="mouse2024"
+expected result = 422
+actual restult = {status_code}
+==>  {test_status}
+'''
+# query status
+status_code = r.status_code
+# display the results
+if status_code == 422:
+    test_status = 'SUCCESS'
+else:
+    test_status = 'FAILURE'
+print(output.format(status_code=status_code, test_status=test_status))
+# printing in a file
+if os.environ.get('LOG') == 1:
+    with open('api_test.log', 'a') as file:
+        file.write(output)
