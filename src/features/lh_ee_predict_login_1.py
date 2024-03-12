@@ -106,6 +106,7 @@ async def find_nearest_firestations(address_input: AddressInput):
             
             return {
                 "nearest_fire_station": nearest_fire_stations.to_dict(orient="records"),
+                "distance to incident":nearest_fire_stations['distance'].iloc[0],
                 "predicted_class": float(prediction_result)
             }
         else:

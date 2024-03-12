@@ -7,6 +7,15 @@ class LoginInput(BaseModel):
     username: str
     password: str
 
+class Adress(BaseModel):
+    adress: str
+    
+class AddressInput(BaseModel):
+    address: str
+
+class PredictInput(BaseModel):
+    address_input: AddressInput
+    credentials: LoginInput    
 # Streamlit-App
 def main():
     st.title('Predict Attendance Time')
@@ -27,13 +36,20 @@ def main():
         if response.status_code == 200:
             st.success("Login successful!")
             # Inputfeld Adresse
+            
             address = st.text_input('Enter an address in London:')
-            submit_button = st.button('Predict attendance time')
+            submit_button1 = st.button('Predict attendance time')
 
-            if submit_button:
-                # Send prediction request to the FastAPI server
-                response = requests.post("http://localhost:8000/predict", json=predict_data)
-
+            if submit_button1:
+                # Send prediction request to the FastAPI server 
+                
+                predict_data = PredictInput(
+    address_input=AddressInput(address=address),
+    credentials=LoginInput(username=username, password=password)
+)
+                response = requests.post("http://localhost:8000/predict", json=predict_data.dict())
+                st. write(predict)
+                st.write("Response Status Code:", response.status_code)
                 # Process response
                 if response.status_code == 200:
                     st.success("here we goi")
@@ -45,8 +61,10 @@ def main():
                     st.write('Predicted Class:', api_data['predicted_class'])
                     st.write('Arrival Time Message:', api_data['arrival_time_message'])
                 else:
+                    
                     st.error("Prediction request failed!")
         else:
+            
             st.error("Login failed! Please check your username and password.")
 
 if __name__ == '__main__':
