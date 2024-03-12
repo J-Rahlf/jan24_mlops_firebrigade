@@ -11,15 +11,15 @@ print('jr_preprocessing startet')
 # Read the CSV file
 # Get the directory path of the current script
 script_dir = os.path.dirname(os.path.abspath(__file__))
-print('X', script_dir)
+print('script_dir:', script_dir)
 
 # Navigate to the project directory (two parent directories up from the script directory)
 project_dir = os.path.dirname(os.path.dirname(script_dir))
-print('X', project_dir)
+print('project_dir:', project_dir)
 
 # Construct the file path relative to the current working directory
 file_path = os.path.join(project_dir, "data", "raw", "df_i.csv")
-print('X', file_path)
+print('file_path:', file_path)
 
 
 # Read the CSV file

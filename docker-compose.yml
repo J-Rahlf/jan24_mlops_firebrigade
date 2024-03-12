@@ -20,9 +20,10 @@ services:
       - type: bind
         source: ./data/processed
         target: /jan24_mlops_firebrigade/data/processed
+        read_only: false  # Set the volume as writable
       - type: bind
-        source: ./jan24_mlops_firebrigade-pytest-1/tests
-        target: /jan24_mlops_firebrigade/src/features/
+        source: ./jan24_mlops_firebrigade-pytest-1/jan24_mlops_firebrigade/tests
+        target: /jan24_mlops_firebrigade-preprocessing-1/jan24_mlops_firebrigade/src/features/
     environment:
       - current_datetime=2024-03-07\ 12:00:00
     networks:

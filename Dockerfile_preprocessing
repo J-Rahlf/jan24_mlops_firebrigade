@@ -8,11 +8,11 @@ RUN pip install matplotlib numpy pandas pyproj geopy datetime
 WORKDIR /jan24_mlops_firebrigade
 
 # Copy the Python script into the container
-COPY src/features/jr_preprocessing.py /jan24_mlops_firebrigade/src/features/jr_preprocessing.py
+COPY ./src/features/jr_preprocessing.py /jan24_mlops_firebrigade/src/features/jr_preprocessing.py
 
 
 # Command to run the script
-CMD ["python", "src/features/jr_preprocessing.py"]
+CMD ["python3", "/jan24_mlops_firebrigade/src/features/jr_preprocessing.py"]
 
 
 
