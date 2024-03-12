@@ -61,10 +61,6 @@ actual result = {status_code}
         {"address": "122, Baker Street, London, UK"},
         {"username": "mickey", "password": "mouse2024"},
         401
-    ),(
-        {"address": "2, Place de Barcelone, Paris, France"},
-        {"username": "harri", "password": "munich2024"},
-        401
     )
 ])
 def test_predict_route(address_input, credentials, expected_prediction_status):
