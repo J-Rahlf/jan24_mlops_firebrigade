@@ -81,7 +81,7 @@ def main():
                 #st.write('Predicted Class:', api_data['predicted_class'])
                 #st.write('station name:', api_data['stat'])
                 st.write('Arrival Time Message:', api_data['arrival_time_message'])
-                st.write(api_data)  # Anzeigen der gesamten API-Daten
+               # st.write(api_data)  # Anzeigen der gesamten API-Daten
             else:
                 st.error("Prediction request failed!")
 

@@ -61,6 +61,11 @@ actual result = {status_code}
         {"address": "122, Baker Street, London, UK"},
         {"username": "mickey", "password": "mouse2024"},
         401
+    ),
+    (
+        {"address": "122, HAHAHA Road, London, UK"},
+        {"username": "harriet", "password": "munich2024"},
+        500
     )
 ])
 def test_predict_route(address_input, credentials, expected_prediction_status):
