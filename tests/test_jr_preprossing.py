@@ -6,18 +6,18 @@ from datetime import datetime
 
 # Get the directory path of the current script
 script_dir = os.path.dirname(os.path.abspath(__file__))
-print('X',script_dir)
+print('script_dir:',script_dir)
 # Navigate to the project directory (two parent directories up from the script directory)
 project_dir = os.path.dirname(script_dir)
-print('X',project_dir)
+print('project_dir:',project_dir)
 
 # Set the path to the module
 module_path = os.path.join(project_dir, "src", "features", "jr_preprocessing.py")
-print('X',module_path)
+print('module_path:',module_path)
 
 # Set the path to the log.txt file in the tests directory
 log_file_path = os.path.join(project_dir, "tests", "log.txt")
-print('X',log_file_path)
+print('log_file_path:',log_file_path)
 
 # Check if log.txt exists in the tests directory, if not, create it
 if not os.path.exists(log_file_path):
@@ -43,7 +43,7 @@ with open(log_file_path, "a") as log_file:
 def test_script_execution():
     # Get the absolute path to the script
     script_path = os.path.join(project_dir, "src/features/jr_preprocessing.py")
-    print('X', script_path)
+    print('script_path:', script_path)
     # Define the command to execute the script
     command = f"python {script_path}"
     # Execute the command and check if it runs successfully

@@ -2,7 +2,7 @@
 
 ====================================
 Start test on 'jr_preprocessing.py': 
-2024-03-08 12:25:24.16
+2024-03-12 17:14:43.31
 ====================================
 ====================================
 pytest: "jr_preprocessing.py"
@@ -17,52 +17,7 @@ test_output_file_creation(): Failure
 
 ====================================
 Start test on 'jr_preprocessing.py': 
-2024-03-08 12:29:14.97
-====================================
-====================================
-pytest: "jr_preprocessing.py"
-test_script_execution(): Failure
-Reason: The script execution failed
-Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
-====================================
-====================================
-pytest: "jr_preprocessing.py"
-test_output_file_creation(): Failure
-====================================
-
-====================================
-Start test on 'jr_preprocessing.py': 
-2024-03-08 13:13:10.09
-====================================
-====================================
-pytest: "jr_preprocessing.py"
-test_script_execution(): Failure
-Reason: The script execution failed
-Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
-====================================
-====================================
-pytest: "jr_preprocessing.py"
-test_output_file_creation(): Failure
-====================================
-
-====================================
-Start test on 'jr_preprocessing.py': 
-2024-03-08 14:18:40.58
-====================================
-====================================
-pytest: "jr_preprocessing.py"
-test_script_execution(): Failure
-Reason: The script execution failed
-Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
-====================================
-====================================
-pytest: "jr_preprocessing.py"
-test_output_file_creation(): Failure
-====================================
-
-====================================
-Start test on 'jr_preprocessing.py': 
-2024-03-08 15:21:08.74
+2024-03-12 18:29:16.38
 ====================================
 ====================================
 pytest: "jr_preprocessing.py"
@@ -76,15 +31,28 @@ test_output_file_creation(): Success
 
 ====================================
 Start test on 'jr_preprocessing.py': 
-2024-03-08 15:45:18.50
+2024-03-12 18:32:19.73
 ====================================
 ====================================
 pytest: "jr_preprocessing.py"
-test_script_execution(): Failure
-Reason: The script execution failed
-Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+Time of execution: None
+test_script_execution(): Success
 ====================================
 ====================================
 pytest: "jr_preprocessing.py"
-test_output_file_creation(): Failure
+test_output_file_creation(): Success
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-12 18:35:45.23
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+Time of execution: None
+test_script_execution(): Success
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
 ====================================

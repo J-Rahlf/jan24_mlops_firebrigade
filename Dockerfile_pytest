@@ -8,7 +8,7 @@ RUN pip install pytest datetime
 WORKDIR /jan24_mlops_firebrigade
 
 # Copy the test scripts into the container's working directory
-COPY tests/test_jr_preprossing.py /jan24_mlops_firebrigade/tests/test_jr_preprossing.py
+COPY ./tests/test_jr_preprossing.py /jan24_mlops_firebrigade/tests/test_jr_preprossing.py
 
 # Command to execute when the container starts
-CMD ["pytest", "tests/test_jr_preprossing.py"]
+CMD ["pytest", "-s", "tests/test_jr_preprossing.py"]
