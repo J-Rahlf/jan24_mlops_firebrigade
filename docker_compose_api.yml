@@ -1,0 +1,31 @@
+version: '3.9'
+
+services:
+  api:
+    build: 
+      context: . # Pfad zum Verzeichnis, das das Dockerfile_api enthält
+      dockerfile: Dockerfile_api1 # Name des Dockerfiles für die API
+    container_name: api
+    volumes:
+      - type: bind
+        source: ./src/features
+        target: /jan24_mlops_firebrigade/src/features
+    command: ["uvicorn", "/jan24_mlops_firebrigade/src/features/login_predict4:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    networks:
+      - my_bridge
+    restart: on-failure  # Korrigierte Einrückung
+
+  web:
+    build: 
+      context: . # Korrigierter Pfad, entferne das Leerzeichen vor dem "/"
+      dockerfile: Dockerfile_eestream # Name des Dockerfiles für die Streamlit-Anwendung
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+    networks:
+      - my_bridge
+
+networks:
+  my_bridge:
+    driver: bridge
