@@ -13,7 +13,10 @@ services:
       - type: bind
         source: ./models
         target: /jan24_mlops_firebrigade/models
-    command: ["uvicorn", "src.features.login_predict4:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+      - type: bind
+        source: ./data/processed
+        target: /jan24_mlops_firebrigade/data/processed
+    command: ["uvicorn", "src.features.login_predict_jr:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 
     networks:
       - my_bridge
