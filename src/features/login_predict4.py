@@ -1,4 +1,4 @@
-from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi import Depends, FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from passlib.context import CryptContext
@@ -9,7 +9,8 @@ import datetime
 import pytz
 import pandas as pd
 import joblib
-import requests
+# jr: import new libary
+import os
 
 app = FastAPI()
 security = HTTPBasic()
@@ -20,10 +21,34 @@ class AddressInput(BaseModel):
     address: str
 
 # Read the CSV file containing fire station data
-sb = pd.read_csv("/jan24_mlops_firebrigade/data/processed/sb.csv")
+
+# jr: Get the directory path of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+print('script_dir:', script_dir)
+# jr: Navigate to the project directory (two parent directories up from the script directory)
+project_dir = os.path.dirname(os.path.dirname(script_dir))
+print('project_dir:', project_dir)
+# jr: Construct the file path relative to the current working directory
+file_path = os.path.join(project_dir, "data", "processed", "sb.csv")
+print('file_path:', file_path)
+
+#  jr: Read the CSV file
+df_i = pd.read_csv(file_path)
+
+
+# jr: outcommented old comannd
+# sb = pd.read_csv("/jan24_mlops_firebrigade/data/processed/sb.csv")
 
 # Load your trained model
-xclf = joblib.load('/jan24_mlops_firebrigade/models/XGBoost3kurz.pkl')
+
+# jr: Construct the model path relative to the current working directory
+model_path = os.path.join(project_dir, "models", "XGBoost3kurz.pkl")
+print('model_path:', model_path)
+#  jr: Read the model file
+xclf = joblib.load(model_path)
+
+# jr: outcommented old comannd
+# xclf = joblib.load('/jan24_mlops_firebrigade/models/XGBoost3kurz.pkl')
 
 # Mocked users data
 users = {
