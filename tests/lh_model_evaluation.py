@@ -87,9 +87,9 @@ def manage_model(y_test, y_pred) :
             #log_file_path = os.path.join(log_folder, 'model_test.log')  # Construct the full path ./tests/model_test.log
 
         #    with open(log_file_path, 'a') as file:
-            with open('./tests/model_test.log', 'a') as file:
+            with open('./tests/model_test_log.txt', 'a') as file:
                 file.write(output.format(time=time,accuracy=accuracy, f2_score=f2_score,test_status=test_status))
-                print("writing in file ./tests/model_test.log")
+                print("writing in file ./tests/model_test_log.txt")
     
     except :
         print("An exception has been raised. Read well.")

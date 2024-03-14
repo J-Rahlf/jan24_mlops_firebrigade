@@ -21,5 +21,5 @@ sys.stdout.close()
 sys.stdout = original_stdout
 
 if os.environ.get('LOG') == '1':
-        with open('./tests/model_test.log', 'a') as file:
+        with open('./tests/model_test_log.txt', 'a') as file:
             file.write(output)
