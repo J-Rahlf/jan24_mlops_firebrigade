@@ -43,6 +43,7 @@ def main():
                 response = requests.post("http://localhost:8000/login", json={"username": username, "password": password})
                 if response.status_code == 200:
                     st.success("Login successful!")
+                    st.button('press for next page')
                     st.session_state.session_state['logged_in'] = True
                     st.session_state.session_state['username'] = username
                     st.session_state.session_state['password'] = password
@@ -77,9 +78,10 @@ def main():
                 # Ausgabe der Daten
                 st.subheader('Predicted Attendance Time:')
                 st.write('Distance (meters):', api_data['distance_to_incident'])
-                st.write('Predicted Class:', api_data['predicted_class'])
+                #st.write('Predicted Class:', api_data['predicted_class'])
+                #st.write('station name:', api_data['stat'])
                 st.write('Arrival Time Message:', api_data['arrival_time_message'])
-              #  st.write(api_data)  # Anzeigen der gesamten API-Daten
+               # st.write(api_data)  # Anzeigen der gesamten API-Daten
             else:
                 st.error("Prediction request failed!")
 

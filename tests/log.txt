@@ -13,3 +13,13 @@ test_script_execution(): Success
 pytest: "jr_preprossing.py"
 test_output_file_creation(): Success
 ====================================
+
+====================================
+Start test on 'jr_preprossing.py': 
+2024-03-12 10:50:41.33
+====================================
+
+====================================
+Start test on 'jr_preprossing.py': 
+2024-03-12 10:54:51.62
+====================================

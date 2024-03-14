@@ -9,6 +9,7 @@ import datetime
 import pytz
 import pandas as pd
 import joblib
+import requests
 
 app = FastAPI()
 security = HTTPBasic()
