@@ -3,7 +3,7 @@ FROM python:3.9
 
 WORKDIR /jan24_mlops_firebrigade
 
-COPY . /src/features/ee_stream7.py /jan24_mlops_firebrigade/src/features/ee_stream7.py
+COPY ./src/features/ee_stream7.py /jan24_mlops_firebrigade/src/features/ee_stream7.py
 
 RUN pip install streamlit requests pydantic 
 
