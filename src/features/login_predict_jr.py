@@ -34,7 +34,7 @@ file_path = os.path.join(project_dir, "data", "processed", "sb.csv")
 print('file_path:', file_path)
 
 #  jr: Read the CSV file
-df_i = pd.read_csv(file_path)
+sb = pd.read_csv(file_path)
 
 
 # jr: outcommented old command
