@@ -1,0 +1,16 @@
+FROM python:3.9
+
+# Setze das Arbeitsverzeichnis im Container
+WORKDIR /jan24_mlops_firebrigade
+
+# Kopiere den Rest des Codes in das Arbeitsverzeichnis
+COPY ./src/features/login_predict_jr.py /jan24_mlops_firebrigade/src/features/login_predict_jr.py
+
+# Kopiere die Anforderungen in das Arbeitsverzeichnis
+COPY ./ee_requirements.txt /jan24_mlops_firebrigade/ee_requirements.txt
+RUN pip3 install -r ee_requirements.txt
+
+# Öffne den Port, den deine API verwendet (z.B. 8000)
+EXPOSE 8000
+
+CMD ["uvicorn", "src.features.login_predict_jr:app"]

@@ -1,0 +1,55 @@
+version: '3.9'
+
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile_api1
+    container_name: api
+    volumes:
+      - type: bind
+        source: ./src/features
+        target: /jan24_mlops_firebrigade/src/features
+      - type: bind
+        source: ./models
+        target: /jan24_mlops_firebrigade/models
+      - type: bind
+        source: ./data/processed
+        target: /jan24_mlops_firebrigade/data/processed
+    command: ["uvicorn", "src.features.login_predict_jr:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    ports:
+      - "8000:8000"
+    networks:
+      - my_bridge
+    restart: on-failure  
+
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile_eestream
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+    networks:
+      - my_bridge
+
+  api_test:
+    build:
+      context: .
+      dockerfile: Dockerfile_api_test
+    volumes:
+      - type: bind
+        source: ./src/features
+        target: /jan24_mlops_firebrigade/src/features
+    networks:
+      - my_bridge  
+    depends_on:
+      - api
+    environment:
+      - LOG=1
+    restart: on-failure
+    
+networks:
+  my_bridge:
+    driver: bridge

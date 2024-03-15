@@ -37,10 +37,9 @@ def main():
         password = st.text_input('Password:', type='password')
         submit_button = st.button('Login')
 
-        # Wenn der Benutzer auf den Login-Button klickt, überprüfen Sie die Anmeldeinformationen
         if submit_button:
             if check_login(username, password):
-                response = requests.post("http://localhost:8000/login", json={"username": username, "password": password})
+                response = requests.post("http://api:8000/login", json={"username": username, "password": password})
                 if response.status_code == 200:
                     st.success("Login successful!")
                     st.button('press for next page')
@@ -69,7 +68,7 @@ def main():
                 address_input=AddressInput(address=address),
                 credentials=LoginInput(username=username, password=password)
             )
-            response = requests.post("http://localhost:8000/predict", json=predict_data.dict())
+            response = requests.post("http://api:8000/predict", json=predict_data.dict())
 
             # Antwort verarbeiten
             if response.status_code == 200:

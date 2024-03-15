@@ -1,0 +1,11 @@
+# Verwende ein offizielles Python-Runtime-Image als Basis
+FROM python:3.9
+
+WORKDIR /jan24_mlops_firebrigade
+
+COPY ./src/features/ee_stream7.py /jan24_mlops_firebrigade/src/features/ee_stream7.py
+
+RUN pip install streamlit requests pydantic 
+
+# Führe die Streamlit-Anwendung aus
+CMD ["streamlit", "run", "src/features/ee_stream7.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
