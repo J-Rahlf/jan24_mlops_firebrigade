@@ -37,7 +37,6 @@ def main():
         password = st.text_input('Password:', type='password')
         submit_button = st.button('Login')
 
-        # Wenn der Benutzer auf den Login-Button klickt, überprüfen Sie die Anmeldeinformationen
         if submit_button:
             if check_login(username, password):
                 response = requests.post("http://api:8000/login", json={"username": username, "password": password})

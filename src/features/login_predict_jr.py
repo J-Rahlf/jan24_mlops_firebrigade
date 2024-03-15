@@ -43,7 +43,7 @@ sb = pd.read_csv(file_path)
 # Load your trained model
 
 # jr: Construct the model path relative to the current working directory
-model_path = os.path.join(project_dir, "models", "XGBoost3kurz.pkl")
+model_path = os.path.join(project_dir, "models", "XGBoost3kurz_CURRENT.pkl")
 print('model_path:', model_path)
 #  jr: Read the model file
 xclf = joblib.load(model_path)

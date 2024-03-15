@@ -1,0 +1,11 @@
+# Verwende ein offizielles Python-Runtime-Image als Basis
+FROM python:3.9
+
+WORKDIR /jan24_mlops_firebrigade
+
+COPY ./src/features/test_api_containerd.py /jan24_mlops_firebrigade/src/features/test_api_containerd.py
+
+RUN pip install streamlit requests pydantic pytest 
+
+# Führe die Streamlit-Anwendung aus
+CMD ["pytest", "/jan24_mlops_firebrigade/src/features/test_api_containerd.py"]
