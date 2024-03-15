@@ -1,8 +1,15 @@
 import os
 import subprocess
 from datetime import datetime
+import time
 
+# Custom wait time in seconds
+WAIT_TIME = 5  # Wait time of 60 seconds (can be adjusted)
 
+# Wait before starting the test
+print(f"Waiting for {WAIT_TIME} seconds before starting the test...")
+time.sleep(WAIT_TIME)
+print("Waiting time expired. Starting the test...")
 
 # Get the directory path of the current script
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -66,13 +73,14 @@ def test_script_execution():
             log_file.write("====================================\n")
             log_file.write("pytest: \"jr_preprocessing.py\"\n")
             log_file.write("test_script_execution(): Failure\n")
-            log_file.write(f"Reason: The script execution failed\n{e}\n")
+            log_file.write(f"Reason: The script execution failed\n{e.stderr}\n")
             log_file.write("====================================\n")
 
 # Test whether the output file is created
 def test_output_file_creation():
     # Construct the path to the output file relative to the project directory
-    output_file_path = os.path.join(project_dir, "data/processed/df_mi5.csv")
+    output_file_path = os.path.join(project_dir, "data/processed/df_mi5_5.csv")
+    print('\noutput_file_path:', output_file_path)
     if os.path.exists(output_file_path):
         result = "Success"
     else:

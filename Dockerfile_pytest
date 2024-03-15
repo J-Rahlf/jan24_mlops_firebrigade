@@ -2,7 +2,7 @@
 FROM python:3.9-slim
 
 # Install pytest and other dependencies
-RUN pip install pytest datetime
+RUN pip install pytest datetime matplotlib numpy pandas pyproj geopy
 
 # Set the working directory inside the container
 WORKDIR /jan24_mlops_firebrigade
