@@ -56,3 +56,389 @@ test_script_execution(): Success
 pytest: "jr_preprocessing.py"
 test_output_file_creation(): Success
 ====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 13:14:49.22
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 13:32:04.16
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 14:38:42.12
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+Time of execution: None
+test_script_execution(): Success
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 14:40:24.54
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+Time of execution: None
+test_script_execution(): Success
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 13:51:16.33
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 14:03:50.45
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 14:06:47.33
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 14:16:58.74
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 14:24:30.87
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 14:25:58.85
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 15:08:51.48
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 15:13:00.67
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 15:14:14.19
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 15:17:55.04
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Command 'python3 /jan24_mlops_firebrigade/src/features/jr_preprocessing.py' returned non-zero exit status 2.
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 15:22:31.91
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+Time of execution: None
+test_script_execution(): Success
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 15:26:47.40
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+python: can't open file '/jan24_mlops_firebrigade/src/features/jr_preprocessing.py': [Errno 2] No such file or directory
+
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 15:39:23.42
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Traceback (most recent call last):
+  File "/jan24_mlops_firebrigade/src/features/jr_preprocessing.py", line 2, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 15:45:08.12
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Traceback (most recent call last):
+  File "/jan24_mlops_firebrigade/src/features/jr_preprocessing.py", line 2, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 15:51:15.35
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Traceback (most recent call last):
+  File "/jan24_mlops_firebrigade/src/features/jr_preprocessing.py", line 2, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Failure
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 15:52:44.41
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Traceback (most recent call last):
+  File "/jan24_mlops_firebrigade/src/features/jr_preprocessing.py", line 2, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 16:02:25.75
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Traceback (most recent call last):
+  File "/jan24_mlops_firebrigade/src/features/jr_preprocessing.py", line 26, in <module>
+    df_i = pd.read_csv(file_path)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/jan24_mlops_firebrigade/data/raw/df_i.csv'
+
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 16:09:02.69
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_script_execution(): Failure
+Reason: The script execution failed
+Traceback (most recent call last):
+  File "/jan24_mlops_firebrigade/src/features/jr_preprocessing.py", line 65, in <module>
+    df_stations_boroughs = pd.read_csv(file_path)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/jan24_mlops_firebrigade/data/external/stations_boroughs_1.csv'
+
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-15 16:11:13.53
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+Time of execution: None
+test_script_execution(): Success
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
+====================================
