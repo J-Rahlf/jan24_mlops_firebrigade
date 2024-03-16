@@ -1,0 +1,32 @@
+name: API Workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10.13
+
+    - name: Install dependencies
+      run: pip install -r ee_requirements.txt
+
+    - name: Run predict_login.py
+      run: uvicorn src.features.login_predictjr:app --reload
+
+    - name: Run test_api.py
+      run: python src/features/test_api4.py
