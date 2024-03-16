@@ -26,7 +26,7 @@ jobs:
       run: pip install -r ee_requirements.txt
 
     - name: Run predict_login.py
-      run: uvicorn src.features.login_predictjr:app --reload
+      run: uvicorn src.features.login_predictjr:app 
 
     - name: Run test_api.py
       run: python src/features/test_api4.py
