@@ -25,11 +25,9 @@ jobs:
     - name: Install dependencies
       run: pip install -r ee_requirements.txt
 
-    - name: Run predict_login.py
+    - name: Run predict_login.py in background
       run: uvicorn src.features.login_predictjr:app --reload &
-      background: true
+#      background: true
 
     - name: Run test_api.py
-      run: |
-        python src/features/test_api4.py
-        pkill uvicorn
+      run: python src/features/test_api4.py
