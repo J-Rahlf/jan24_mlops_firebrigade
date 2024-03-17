@@ -1,0 +1,104 @@
+version: '3'
+
+networks:
+  firebrigade:
+
+services:
+
+  preprocessing:
+    build:
+      context: .
+      dockerfile: Dockerfile.preprocessing
+    # image: preprocessing
+    volumes:
+      - type: bind
+        source: ./data/raw
+        target: /jan24_mlops_firebrigade/data/raw
+      - type: bind
+        source: ./data/external
+        target: /jan24_mlops_firebrigade/data/external
+      - type: bind
+        source: ./data/processed
+        target: /jan24_mlops_firebrigade/data/processed
+        read_only: false  # Set the volume as writable
+      - type: bind
+        source: ./src/features/
+        target: /jan24_mlops_firebrigade/src/features/
+      #- type: bind
+      #  source: ./tests
+      #  target: /jan24_mlops_firebrigade/src/features/
+      - type: bind
+        source: ./tests
+        target: /jan24_mlops_firebrigade/tests
+    environment:
+      - current_datetime=2024-03-07\ 12:00:00
+    networks:
+      - firebrigade
+    # healthcheck:
+    #   test: ["CMD-SHELL", "curl -f http://localhost/ || exit 1"]
+    #   interval: 20s
+    #   timeout: 10s
+    #   retries: 3                     # Retry 3 times
+    # command: ["tail", "-f", "/dev/null"]  
+
+
+  preprocessing_pytest:
+    build:
+      context: .
+      dockerfile: Dockerfile.preprocessing_test
+    # image: test_preprocessing  
+    depends_on:
+      - preprocessing
+    healthcheck:
+      test: 
+        - CMD-SHELL
+        - curl -f http://preprocessing/ || exit 1  # Health check command
+        - exit 0                                   # Original health check command
+      interval: 20s                    # Check every 20 seconds
+      timeout: 10s                     # Timeout after 10 seconds
+      retries: 3 
+    
+    volumes:
+      - type: bind
+        source: ./tests
+        target: /jan24_mlops_firebrigade/tests
+      #- type: bind
+      #  source: ./src/features/
+      #  target: /jan24_mlops_firebrigade-pytest-1/tests
+      - type: bind
+        source: ./src/features/
+        target: /jan24_mlops_firebrigade/src/features/ 
+      - type: bind
+        source: ./data/processed
+        target: /jan24_mlops_firebrigade/data/processed
+      - type: bind
+        source: ./data/external
+        target: /jan24_mlops_firebrigade/data/external   
+      - type: bind
+        source: ./data/raw
+        target: /jan24_mlops_firebrigade/data/raw    
+    environment:
+      - current_datetime=2024-03-07\ 12:00:00
+    networks:
+      - firebrigade
+  
+  
+  #test-debug:
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile_test_debug
+  #  depends_on:
+  #    - preprocessing
+  #  volumes:
+  #    - type: bind
+  #      source: ./tests
+  #      target: /jan24_mlops_firebrigade/tests
+  #  environment:
+  #    - current_datetime=2024-03-07\ 12:00:00
+  #  networks:
+  #    - firebrigade
+
+
+
+
+

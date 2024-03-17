@@ -541,3 +541,73 @@ test_script_execution(): Success
 pytest: "jr_preprocessing.py"
 test_output_file_creation(): Success
 ====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-17 09:04:27.76
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+Time of execution: None
+test_script_execution(): Success
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-17 09:06:27.23
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+Time of execution: None
+test_script_execution(): Success
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-17 09:09:56.87
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+Time of execution: None
+test_script_execution(): Success
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-17 10:45:01.87
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+Time of execution: None
+test_script_execution(): Success
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
+====================================
+
+====================================
+Start test on 'jr_preprocessing.py': 
+2024-03-17 12:22:21.66
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+Time of execution: None
+test_script_execution(): Success
+====================================
+====================================
+pytest: "jr_preprocessing.py"
+test_output_file_creation(): Success
+====================================
