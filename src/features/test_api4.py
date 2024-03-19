@@ -8,10 +8,6 @@ api_address = 'localhost'
 # API-Port
 api_port = 8000
 
-def write_to_log(output, log_file='api_test.log'):
-    with open(log_file, 'a') as file:
-        file.write(output)
-
 @pytest.mark.parametrize("username, password, expected_login_status", [
     ('harriet', 'munich2024', 200),
     ('mickey', 'mouse2024', 401)
@@ -45,11 +41,7 @@ expected result = {expected_login_status}
 actual result = {status_code}
 ==>  SUCCESS
 '''
-
-    # Schreibe in die Log-Datei
-    if os.environ.get('LOG') == '1':
-        log_file_path = os.environ.get('LOG_PATH', 'api_test.log')
-        write_to_log(output, log_file_path)
+    return output
 
 @pytest.mark.parametrize("address_input, credentials, expected_prediction_status", [
     (
@@ -94,8 +86,18 @@ expected result = {expected_prediction_status}
 actual result = {status_code}
 ==>  SUCCESS
 '''
-    
-    # Schreibe in die Log-Datei
-    if os.environ.get('LOG') == '1':
-        log_file_path = os.environ.get('LOG_PATH', 'api_test.log')
-        write_to_log(output, log_file_path)
+    return output
+
+# Ausführen der Tests und Zwischenspeichern der Outputs
+authentication_output = test_authentication('harriet', 'munich2024', 200)
+prediction_output = test_predict_route({"address": "122, Baker Street, London, UK"}, {"username": "harriet", "password": "munich2024"}, 200)
+
+output_path = "../tests/api_test_log.txt"
+
+# Schreiben der Outputs beider Tests in dieselbe Datei
+try:
+    with open("api_test_log.txt", "w") as file:
+        file.write(authentication_output)
+        file.write(prediction_output)
+except Exception as e:
+    print(f"Fehler beim Schreiben der Datei 'combined_test_log.txt': {e}")
