@@ -92,7 +92,7 @@ actual result = {status_code}
 authentication_output = test_authentication('harriet', 'munich2024', 200)
 prediction_output = test_predict_route({"address": "122, Baker Street, London, UK"}, {"username": "harriet", "password": "munich2024"}, 200)
 
-output_path = "../tests/api_test_log.txt"
+output_path = "jan24_mlops_firebrigade/tests/api_test_log.txt"
 
 # Schreiben der Outputs beider Tests in dieselbe Datei
 try:
